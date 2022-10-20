@@ -1,0 +1,8 @@
+{
+  "domain": "paperspace",
+  "name": "Paperspace",
+  "documentation": "https://www.home-assistant.io/integrations/paperspace",
+  "codeowners": ["@davidnoyes"],
+  "iot_class": "local_polling",
+  "loggers": ["paperspace"]
+}

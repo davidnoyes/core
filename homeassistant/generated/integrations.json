@@ -3188,6 +3188,11 @@
       "iot_class": null,
       "name": "iframe Panel"
     },
+    "paperspace": {
+      "config_flow": false,
+      "iot_class": "local_polling",
+      "name": "Paperspace"
+    },
     "peco": {
       "config_flow": true,
       "iot_class": "cloud_polling",
