@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from typing import Any
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -66,7 +67,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self.set_data(machine)
 
     @property
-    def machine_id(self):
+    def machine_id(self) -> str:
         """Return the machine id of the sensor."""
         return self._machine_id
 
@@ -76,7 +77,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._machine_id = machine_id
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Return the name of the sensor."""
         return self._name
 
@@ -86,7 +87,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._name = name
 
     @property
-    def os(self):  # pylint: disable=invalid-name
+    def os(self) -> str:  # pylint: disable=invalid-name
         """Return the os of the sensor."""
         return self._os
 
@@ -146,7 +147,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._storage_used = storage_used
 
     @property
-    def machine_type(self):
+    def machine_type(self) -> str:
         """Return the machine_type of the sensor."""
         return self._machine_type
 
@@ -166,7 +167,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._usage_rate = usage_rate
 
     @property
-    def agent_type(self):
+    def agent_type(self) -> str:
         """Return the agent_type of the sensor."""
         return self._agent_type
 
@@ -186,7 +187,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._created_at = created_at
 
     @property
-    def machine_state(self):
+    def machine_state(self) -> str:
         """Return the machine_state of the sensor."""
         return self._machine_state
 
@@ -216,7 +217,7 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._public_ip = public_ip
 
     @property
-    def region(self):
+    def region(self) -> str:
         """Return the region of the sensor."""
         return self._region
 
@@ -226,17 +227,17 @@ class PaperspaceBinarySensor(BinarySensorEntity):
         self._region = region
 
     @property
-    def is_on(self):
+    def is_on(self) -> bool:
         """Return true if the binary sensor is on."""
         return self._machine_state != "off"
 
     @property
-    def device_class(self):
+    def device_class(self) -> BinarySensorDeviceClass:
         """Return the class of this sensor."""
         return BinarySensorDeviceClass.RUNNING
 
     @property
-    def extra_state_attributes(self):
+    def extra_state_attributes(self) -> dict[str, Any]:
         """Return the state attributes of the Paperspace machine."""
         return {
             ATTR_MACHINE_ID: self.machine_id,
